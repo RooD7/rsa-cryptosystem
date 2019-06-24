@@ -37,18 +37,27 @@ public class Main {
 		// 'd' seja o inverso multiplicativo de 'e'
 		BigInteger d = e.modInverse(m);
 
-		System.out.println("p:"+p);
-		System.out.println("q:"+q);
-		System.out.println("n:"+n);
-		System.out.println("e:"+e);
-		System.out.println("d:"+d);
+		System.out.println("\nNúmero primo grande p: "+p);
+		System.out.println("\nNúmero primo grande q: "+q);
+		System.out.println("\np * q: "+n);
+
+		System.out.println("\nChave publica ");
+		System.out.println("----- ------- ");
+
+		System.out.println("\nFunção totiente m = (p-1)(q-1): "+n);
+
+		System.out.println("\nInteiro 'e', onde 1 < 'e' < 'm': "+e);
+
+		System.out.println("\nChave privada ");
+		System.out.println("----- ------- ");
+		System.out.println("\nInverso multiplicativo de 'e': "+d);
 
 		//mensagem cifrada - RSA_encrypt()
         msgcifrada = new BigInteger(msg.getBytes()).modPow(e, n).toString();
-        System.out.println("msg cifrada: "+ msgcifrada);
+        System.out.println("\nMensagem cifrada: "+ msgcifrada);
 
         //mensagem decifrada - RSA_decrypt()
         msgdecifrada = new String(new BigInteger(msgcifrada).modPow(d, n).toByteArray());
-        System.out.println("msg decifrada: " +msgdecifrada);
+        System.out.println("\nMensagem decifrada: " +msgdecifrada);
 	}
 }
